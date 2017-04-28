@@ -1,0 +1,61 @@
+#alphabets{
+			visibility: hidden;
+			/*font-family: cursive;*/
+			font-size: 35px;
+			color: #b76e79;
+			word-spacing: -3px;
+			letter-spacing: -6px;
+			margin: 0px 30px;
+			/*color :#B3A472;*/
+		}
+		#word{
+			font-family: cursive;
+			font-size: 35px;
+			text-align: center;
+		}
+		#animate{
+			color:black;
+			text-align: center;
+			text-shadow: 10%;
+		}
+		body{
+			background: black;
+			/*color:#b76e79;*/
+			font-family: 'Orbitron', sans-serif;
+		}
+		#win{
+			color:cyan;
+		}
+		.canvas{
+			-ms-transform: rotate(360deg); 
+    		-webkit-transform: rotate(360deg); 
+    		transform: rotate(360deg);
+		}
+		.jumbotron{
+			background: black;
+		}
+		.goldenFont{
+			color:#c3a343; -webkit-text-fill-color: transparent; background: -webkit-linear-gradient(transparent, transparent), url(goldenImage.jpg) repeat; background: -o-linear-gradient(transparent, transparent); -webkit-background-clip: text;
+		}
+		a:hover{
+			color: cyan;
+			text-decoration: none;
+		}
+		a:link{
+			color:#b76e79;
+			text-decoration: none;
+		}
+		a:visited{
+			color: #482E2E;
+			text-decoration: none;
+		}
+		a{
+			padding: 2px;
+			border:1px outset #b76e79;
+			border-spacing: 0px;
+			letter-spacing: 0px;
+			margin: 0;
+		}
+		#progressBar{
+			visibility: hidden;
+		}

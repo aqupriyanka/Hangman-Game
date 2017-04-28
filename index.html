@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Hangman</title>
+
+	<script type="text/javascript" src="hangman.js"></script>
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+	<!-- Optional theme -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+	<link href="https://fonts.googleapis.com/css?family=Orbitron" rel="stylesheet">
+
+	<!-- Latest compiled and minified JavaScript -->
+	<!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script> -->
+
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body onload="myMove();">
+	
+	<header class="jumbotron lead">
+	<h1 id="animate" class="goldenFont">HANGMAN</h1>
+	
+	</header>
+	
+	<b><h2 id="win" class="text-center">Save me from getting HANGED!!</h2></b>
+	<br>
+	<div class="container">
+		<div class="row" style="border:5px dotted #B76E79">
+			<div class="col-md-5 col-md-offset-1 text-left" style="border-right:5px dotted #B76E79">
+					<h3 style="color: #b76e79"> Number of Guesses : <span id="chances"></span></h3>
+					<h3 style="color: #b76e79"> Letters guessed : <span id="letters"></span></h3>
+					
+					<br><br>
+					<canvas  id="canvas" width ="300" height="300">
+						<!-- <img id="hangmanImage" src="hangman.jpg" style="opacity: 0.05"> -->
+					</canvas>
+
+					
+			</div>
+			<div class="col-md-5  text-center" style="margin-left: 30px;">
+				<h3 style="color: #b76e79"> Guess a word what I am thinking</h3>
+				<h3 id="pressKey">Press Any key to Start..</h3>
+				<br><br>
+				<p id="word" style="color: cyan"></p>
+				<br>
+				<div id="alphabets"  class="text-center" style="color: #b76e79;">
+						<a href="javascript:disable(this);letterClicked('A');">A</a>
+						<a href="javascript:disable(this);letterClicked('B');">B</a>
+						<a href="javascript:disable(this);letterClicked('C');">C</a>
+						<a href="javascript:disable(this);letterClicked('D');">D</a>
+						<a href="javascript:disable(this);letterClicked('E');">E</a>
+						<a href="javascript:disable(this);letterClicked('F');">F</a>
+						<a href="javascript:disable(this);letterClicked('G');">G</a>
+						<a href="javascript:disable(this);letterClicked('H');">H</a>
+						<a href="javascript:disable(this);letterClicked('I');">I</a>
+						<a href="javascript:disable(this);letterClicked('J');">J</a>
+						<a href="javascript:disable(this);letterClicked('K');">K</a>
+						<a href="javascript:disable(this);letterClicked('L');">L</a>
+						<a href="javascript:disable(this);letterClicked('M');">M</a>
+						<a href="javascript:disable(this);letterClicked('N');">N</a>
+						<a href="javascript:disable(this);letterClicked('O');">O</a>
+						<a href="javascript:disable(this);letterClicked('P');">P</a>
+						<a href="javascript:disable(this);letterClicked('Q');">Q</a>
+						<a href="javascript:disable(this);letterClicked('R');">R</a>
+						<a href="javascript:disable(this);letterClicked('S');">S</a>
+						<a href="javascript:disable(this);letterClicked('T');">T</a>
+						<a href="javascript:disable(this);letterClicked('U');">U</a>
+						<a href="javascript:disable(this);letterClicked('V');">V</a>
+						<a href="javascript:disable(this);letterClicked('W');">W</a>
+						<a href="javascript:disable(this);letterClicked('X');">X</a>
+						<a href="javascript:disable(this);letterClicked('Y');">Y</a>
+						<a href="javascript:disable(this);letterClicked('Z');">Z</a>
+					</div>
+					<br>
+					<div class="progress" id="progressBar">
+  						<div class="progress-bar progress-bar-success" role="progressbar"           
+  						aria-valuemin="0" aria-valuemax="100">
+    					<!-- s<span class="sr-only">40% Complete (success)</span> -->
+  						</div>
+					</div>
+			</div>
+
+		</div>
+		
+	</div>
+	<script>
+		function myMove() {
+		  var elem = document.getElementById("pressKey");   
+		  var hangman = document.getElementById("animate");
+		  var id = setInterval(frame, 100);
+		  console.log(hangman);
+		  function frame() {
+		  	if(elem.style.color == "white"){
+		  		elem.style.color="black";
+		  	}else{
+		  		elem.style.color="white";
+		  	}
+		  }
+		}
+
+</script>
+
+</body>
+</html>
