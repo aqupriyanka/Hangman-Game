@@ -9,27 +9,32 @@ var noOfLettersFound = 0;
 var chances = 0;
 var audioElement = document.createElement("audio");
 
+
+//AS user press a key, game starts
 document.onkeyup = function(event){
 	
 	newGame();
 }
 
-
+//new game starts whenever user presses any key. In this method, a random word is selected 
+//from the above array and blank dashes are made to fill by user.
+// A keyboard and a users progress bar gets visible to user. 
 function newGame(){
 	if(gameStarted){
 		gameStarted = false;
 		reset();
 		word1 = word[Math.floor(Math.random()*word.length)];
 		printInput(word1);
-		document.getElementById("pressKey").style.visibility = 'hidden';
+		document.getElementById("alphabets").style.visibility = 'visible';
+		document.getElementById("progressBar").style.visibility = 'visible';
 		document.getElementsByClassName("progress-bar")[0].style.width = '0%';
+		document.getElementById("pressKey").style.visibility = 'hidden';
 	}
 }
 
 
 function printInput(word){
-	document.getElementById("alphabets").style.visibility = 'visible';
-	document.getElementById("progressBar").style.visibility = 'visible';
+	
 	if(wordFound){
 		wordFound= false;
 		document.getElementById("word").innerHTML = "";
@@ -64,6 +69,7 @@ function printLetter(index,letter){
 
 function disable(obj){
 	document.activeElement.href = '#';
+	document.activeElement.style.color = "#482E2E";
 	// document.activeElement.style.visibility = 'hidden';
 }
 
@@ -111,7 +117,7 @@ function updateChances(letterFound){
 	  	for(var i=0;i<word1.length;i++){
 	  		printLetter(i,word1[i]);
 	  	}
-	  	document.getElementById("win").innerHTML = 'You get me HANGED';
+	  	document.getElementById("win").innerHTML = 'You got me HANGED';
 	  	document.getElementById("win").style.color = "red";
 		gameEnd();
 	}
@@ -130,6 +136,7 @@ function reset(){
 	var links = document.links;
 	for (var i = 0; i < document.links.length; i++) {
 		links[i].href = "javascript:disable(this);letterClicked('"+links[i].innerHTML+"');";
+		links[i].style.color = "#b76e79";
 	}
 	var canvas = document.getElementById("canvas");
     var c = canvas.getContext('2d');
@@ -150,7 +157,7 @@ function drawCanvas() {
     c.lineWidth = 10;
     c.strokeStyle = 'red';
     c.font = 'bold 24px Optimer, Arial, Helvetica, sans-serif';
-    c.fillStyle = 'red';
+    //c.fillStyle = 'red';
     // draw the ground
     drawLine(c, [20,190], [180,190]);
     // start building the gallows if there's been a bad guess
@@ -192,10 +199,28 @@ function drawCanvas() {
         }
         if (chances > 7) {
             // draw right leg and end game
+            c.lineWidth = 10;
+            c.fillStyle = 'red';
             drawLine(c, [145,130], [160,170]);
+            c.fillStyle = 'red';
             // c.fillText('Game over', 2, 220);
             
         }
+
+    }
+    if(noOfLettersFound === word1.length){
+    	c.strokeStyle = 'green';
+    	c.lineWidth = 10;
+    	c.beginPath();
+            c.moveTo(160, 45);
+            c.arc(145, 45, 15, 0, (Math.PI/180)*360);
+            c.stroke();
+        drawLine(c, [145,60], [145,130]);
+        drawLine(c, [145,80], [110,90]);
+        drawLine(c, [145,80], [180,90]);
+        drawLine(c, [145,130], [130,170]);
+        drawLine(c, [145,130], [160,170]);
+        
     }
 }
 
